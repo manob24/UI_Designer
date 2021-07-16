@@ -1,0 +1,12 @@
+<root>
+    <Label x="150" y="0" height="40" width="700" textColor="#0000CC" fontSize="25" backgroundColor="#E5FFCC">This is a form UI designed using a XML file</Label>
+    <Label x="150" y="100" height="40" width="100" value="Name:" fontStyle="BOLD"/>
+    <EditBox x="270" y="100" height="40" width="300" backgroundColor="#CCFFFF"/>
+    <Label x="150" y="150" height="40" width="100" value="Mother's Name:"/>
+    <EditBox x="270" y="150" height="40" width="300" backgroundColor="#CCFFFF"/>
+    <Label x="150" y="200" height="40" width="100" value="Father's Name:"/>
+    <EditBox x="270" y="200" height="40" width="300" backgroundColor="#CCFFFF"/>
+    <Label x="150" y="250" height="40" width="100" value="Address:"/>
+    <EditBox x="270" y="250" height="40" width="300" backgroundColor="#CCFFFF"/>
+    <Button value="Register" x="470" y="300" width="100" height="50" fontName="Serif" fontStyle="PLAIN" fontSize="15" textColor="#CCCCFF" backgroundColor="#7F00FF"/>
+</root>
