@@ -137,6 +137,7 @@ public class ConfigFileReader26 implements Reader26 {
             hashMap.put(Y, objects[3]);
             hashMap.put(WIDTH, objects[4]);
             hashMap.put(HEIGHT, objects[5]);
+            hashMap.put(TEXT_COLOR,objects[6]);
         }
         return  hashMap;
     }
@@ -146,7 +147,7 @@ public class ConfigFileReader26 implements Reader26 {
         while(myReader.hasNextLine()){
             String data = myReader.nextLine();
             data = data.strip();
-            if(data.charAt(0) == ';'){
+            if(data.equals("") || data.charAt(0) == ';'){
                 continue;
             }
             data = formatData(data);
@@ -160,7 +161,7 @@ public class ConfigFileReader26 implements Reader26 {
                 hashMap = simpleObject(objects);
             }else if(objects[0].equalsIgnoreCase("EditBox") && objects.length == 11){
                 hashMap = detailedObject(objects);
-            }else if(objects[0].equalsIgnoreCase("Label") && objects.length == 6){
+            }else if(objects[0].equalsIgnoreCase("Label") && objects.length == 7){
                 hashMap = simpleObject(objects);
             }else if(objects[0].equalsIgnoreCase("Label") && objects.length == 10){
                 hashMap = detailedObject(objects);
