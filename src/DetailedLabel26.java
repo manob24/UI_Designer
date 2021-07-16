@@ -1,8 +1,8 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class DetailedLabel extends Label{
-    DetailedLabel(Properties properties){
+public class DetailedLabel26 extends Label26 {
+    DetailedLabel26(Properties26 properties){
         super(properties);
     }
     @Override

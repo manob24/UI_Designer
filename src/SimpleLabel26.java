@@ -1,7 +1,7 @@
 import javax.swing.*;
 
-public class SimpleLabel extends Label{
-    SimpleLabel(Properties properties){super(properties);}
+public class SimpleLabel26 extends Label26 {
+    SimpleLabel26(Properties26 properties){super(properties);}
     @Override
     JLabel create() {
         JLabel label = new JLabel();

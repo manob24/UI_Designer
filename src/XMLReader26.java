@@ -4,11 +4,11 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.List;
 
-public class XMLReader implements Reader{
+public class XMLReader26 implements Reader26 {
     String path;
     List<HashMap<String, String>> file;
     int currentInd = 0;
-    XMLReader(String path){
+    XMLReader26(String path){
         this.path = path;
         loadFile();
     }
@@ -18,7 +18,7 @@ public class XMLReader implements Reader{
             File inputFile = new File(path);
             SAXParserFactory factory = SAXParserFactory.newInstance();
             SAXParser saxParser = factory.newSAXParser();
-            XMLHandler xmlHandler = new XMLHandler();
+            XMLHandler26 xmlHandler = new XMLHandler26();
             saxParser.parse(inputFile, xmlHandler);
             while (!xmlHandler.doneParsing){}
             file = xmlHandler.getFile();

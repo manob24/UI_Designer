@@ -1,7 +1,7 @@
 import javax.swing.*;
 
-public class SimpleTextField extends TextField{
-    SimpleTextField(Properties properties) {
+public class SimpleTextField26 extends TextField26 {
+    SimpleTextField26(Properties26 properties) {
         super(properties);
     }
 

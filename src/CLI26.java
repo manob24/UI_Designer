@@ -1,8 +1,8 @@
 import java.util.Scanner;
 
-public class CLI {
-    ConfigManager configManager = null;
-    Reader reader = null;
+public class CLI26 {
+    ConfigManager26 configManager = null;
+    Reader26 reader = null;
     WindowManager windowManager;
     void execute(){
         System.out.println("Enter the path of the file");
@@ -10,14 +10,14 @@ public class CLI {
         String fileName = scn.nextLine();
         String type = extractFileType(fileName);
         if(type.equals("xml")){
-            reader = new XMLReader(fileName);
+            reader = new XMLReader26(fileName);
         }else if(type.equals("conf")){
-            reader = new ConfigFileReader(fileName);
+            reader = new ConfigFileReader26(fileName);
         }else{
             System.out.println("File is not supported");
             return;
         }
-        configManager = new ConfigAdapter(reader);
+        configManager = new ConfigAdapter26(reader);
         windowManager = new WindowManager();
         windowManager.loadUI(configManager);
     }

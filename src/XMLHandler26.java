@@ -5,7 +5,7 @@ import org.xml.sax.helpers.DefaultHandler;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-class XMLHandler extends DefaultHandler {
+class XMLHandler26 extends DefaultHandler {
 
     boolean doneParsing = false;
     ArrayList<HashMap<String, String >> file =  new ArrayList<>();

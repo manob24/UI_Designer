@@ -1,8 +1,8 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class SimpleButton extends Button{
-    public SimpleButton(Properties properties) {
+public class SimpleButton26 extends Button26 {
+    public SimpleButton26(Properties26 properties) {
         super(properties);
     }
 

@@ -1,6 +1,6 @@
 import java.util.HashMap;
 
-public class Properties {
+public class Properties26 {
     final String OBJECT = "object";
     final String TYPE = "type";
     final String VALUE = "value";
@@ -25,7 +25,7 @@ public class Properties {
     int fontStyle;
     int fontSize;
     String backgroundColor;
-    Properties(HashMap<String , String >hashMap){
+    Properties26(HashMap<String , String >hashMap){
         object = hashMap.get(OBJECT);
         type = hashMap.get(TYPE).strip();
         String xText = hashMap.get(X);

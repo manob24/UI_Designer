@@ -1,8 +1,8 @@
 import java.util.HashMap;
 
-public class ConfigAdapter implements ConfigManager{
-    Reader reader;
-    ConfigAdapter(Reader reader){
+public class ConfigAdapter26 implements ConfigManager26 {
+    Reader26 reader;
+    ConfigAdapter26(Reader26 reader){
         this.reader = reader;
     }
     @Override

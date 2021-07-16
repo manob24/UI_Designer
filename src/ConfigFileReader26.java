@@ -3,7 +3,7 @@ import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.Scanner;
 
-public class ConfigFileReader implements Reader {
+public class ConfigFileReader26 implements Reader26 {
     final String TYPE = "type";
     final String VALUE = "value";
     final String X = "x";
@@ -19,7 +19,7 @@ public class ConfigFileReader implements Reader {
     String path;
     File configFile;
     Scanner myReader;
-    ConfigFileReader(String path){
+    ConfigFileReader26(String path){
         this.path = path;
         loadFile();
     }
