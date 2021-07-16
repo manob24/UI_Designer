@@ -14,4 +14,9 @@ public class ConfigAdapter26 implements ConfigManager26 {
     public Boolean hasMoreItems() {
         return reader.hasNextObject();
     }
+
+    @Override
+    public String getItemType() {
+        return reader.getObjectType();
+    }
 }

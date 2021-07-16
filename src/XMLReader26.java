@@ -1,13 +1,13 @@
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 import java.io.File;
+import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 public class XMLReader26 implements Reader26 {
-    String path;
-    List<HashMap<String, String>> file;
-    int currentInd = 0;
+    private final String path;
+    private ArrayList<HashMap<String, String>> file;
+    private int currentInd = 0;
     XMLReader26(String path){
         this.path = path;
         loadFile();
@@ -31,6 +31,11 @@ public class XMLReader26 implements Reader26 {
     @Override
     public Boolean hasNextObject() {
         return currentInd < file.size();
+    }
+
+    @Override
+    public String getObjectType() {
+        return "detailed";
     }
 
     @Override

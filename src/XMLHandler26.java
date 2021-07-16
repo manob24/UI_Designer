@@ -8,10 +8,10 @@ import java.util.HashMap;
 class XMLHandler26 extends DefaultHandler {
 
     boolean doneParsing = false;
-    ArrayList<HashMap<String, String >> file =  new ArrayList<>();
-    HashMap<String, String > hashMap = null;
+    private final ArrayList<HashMap<String, String >> file =  new ArrayList<>();
+    private HashMap<String, String > hashMap = null;
     private int currentInd = 0;
-    boolean started = false;
+    private boolean started = false;
     @Override
     public void endDocument() throws SAXException {
         super.endDocument();

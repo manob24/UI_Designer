@@ -18,7 +18,12 @@ public class CLI26 {
             return;
         }
         configManager = new ConfigAdapter26(reader);
-        windowManager = new WindowManager();
+        String itemType = configManager.getItemType();
+        if(itemType.equals("simple")){
+            windowManager = new WindowManager(SimplisticDesign26.getInstance());
+        }else {
+            windowManager = new WindowManager(DetailedDesign26.getInstance());
+        }
         windowManager.loadUI(configManager);
     }
 
