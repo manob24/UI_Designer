@@ -3,7 +3,7 @@ import javax.xml.parsers.SAXParserFactory;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
-
+/* SAX parser is used to parse xml*/
 public class XMLReader26 implements Reader26 {
     private final String path;
     private ArrayList<HashMap<String, String>> file;
@@ -20,8 +20,8 @@ public class XMLReader26 implements Reader26 {
             SAXParser saxParser = factory.newSAXParser();
             XMLHandler26 xmlHandler = new XMLHandler26();
             saxParser.parse(inputFile, xmlHandler);
-            while (!xmlHandler.doneParsing){}
-            file = xmlHandler.getFile();
+            while (!xmlHandler.doneParsing){}       //waiting to end parsing
+            file = xmlHandler.getFile();            //loading the file as list of hashmap
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -34,15 +34,13 @@ public class XMLReader26 implements Reader26 {
     }
 
     @Override
-    public String getObjectType() {
+    public String getObjectType() {         //xml files are always considered as detailed object
         return "detailed";
     }
 
     @Override
     public HashMap<String, String> nextObject() {
-        HashMap<String , String> hashMap = file.get(currentInd++);
-        hashMap.put("object", "detailed");
-        return hashMap;
+        return file.get(currentInd++);
     }
 
 }

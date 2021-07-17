@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class ConfigFileReader26 implements Reader26 {
+    //constants
     final String TYPE = "type";
     final String VALUE = "value";
     final String X = "x";
@@ -18,11 +19,11 @@ public class ConfigFileReader26 implements Reader26 {
     final String FONT_SIZE = "fontSize";
     final String BACKGROUND_COLOR = "backgroundColor";
 
-    private String objectType = null;
-    private final String path;
+    private String objectType = null;           //simple or detailed object
+    private final String path;                  //path of the file
     private Scanner myReader;
-    private List<HashMap<String, String>> mappedFile;
-    private int currentInd = 0;
+    private List<HashMap<String, String>> mappedFile;       //File converted to list of hashmaps
+    private int currentInd = 0;                 //current index which will be read by other class
     ConfigFileReader26(String path){
         this.path = path;
         loadFile();
@@ -32,7 +33,7 @@ public class ConfigFileReader26 implements Reader26 {
         try {
             File configFile = new File(path);
             myReader = new Scanner(configFile);
-            fileToHashMap();
+            fileToHashMap();                    //converting file to a list of hashmaps
         }
         catch (FileNotFoundException e){
             System.out.println("An error occurred in config file");
@@ -42,7 +43,7 @@ public class ConfigFileReader26 implements Reader26 {
 
     @Override
     public Boolean hasNextObject() {
-        return currentInd<mappedFile.size();
+        return currentInd < mappedFile.size();
     }
 
     @Override
@@ -55,6 +56,7 @@ public class ConfigFileReader26 implements Reader26 {
         return mappedFile.get(currentInd++);
     }
 
+    // This methods formats a string and adds space after each ','
     private String formatData(String data) {
         String formatted = "";
         for (int i = 0; i < data.length(); i++) {
@@ -66,10 +68,11 @@ public class ConfigFileReader26 implements Reader26 {
         return formatted;
     }
 
+    //converts a string array to a hashmap and adds to mappedFile
     private HashMap<String, String> detailedObject(String[] objects) {
         HashMap<String, String> hashMap = new HashMap<>();
         if(objectType == null){
-            objectType = "detailed";
+            objectType = "detailed";                                //only first object is considered
         }
         if(objects[0].strip().equalsIgnoreCase("Button")){
             hashMap.put(TYPE, objects[0]);
@@ -110,9 +113,10 @@ public class ConfigFileReader26 implements Reader26 {
         return hashMap;
     }
 
+    //converts a string array to a hashmap and adds to mappedFile
     private HashMap<String, String> simpleObject(String[] objects) {
         HashMap<String, String> hashMap = new HashMap<>();
-        if(objectType == null){
+        if(objectType == null){                                 //only first object is considered
             objectType = "simple";
         }
         if(objects[0].strip().equalsIgnoreCase("Button")){
@@ -147,12 +151,14 @@ public class ConfigFileReader26 implements Reader26 {
         while(myReader.hasNextLine()){
             String data = myReader.nextLine();
             data = data.strip();
-            if(data.equals("") || data.charAt(0) == ';'){
+            if(data.equals("") || data.charAt(0) == ';'){               //comments and blank lines ignored
                 continue;
             }
             data = formatData(data);
-            String[] objects = data.split(",");
+            String[] objects = data.split(",");                   //split using ',' to array of strings
             HashMap<String, String> hashMap = null;
+
+            //object.length means number of attributes including element name
             if(objects[0].strip().equalsIgnoreCase("Button") && objects.length == 7){
                 hashMap = simpleObject(objects);
             }else if(objects[0].equalsIgnoreCase("Button") && objects.length == 11){
@@ -171,6 +177,6 @@ public class ConfigFileReader26 implements Reader26 {
             }
             mappedFile.add(hashMap);
         }
-        myReader.close();
+        myReader.close();           //close the reader
     }
 }

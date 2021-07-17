@@ -1,3 +1,5 @@
+/* This class adapts a reader class to a configManager */
+
 import java.util.HashMap;
 
 public class ConfigAdapter26 implements ConfigManager26 {

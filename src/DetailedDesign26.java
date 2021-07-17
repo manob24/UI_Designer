@@ -1,3 +1,5 @@
+/*This is a singleton class and a concrete UIDesignFactory class*/
+
 import javax.swing.*;
 
 public class DetailedDesign26 extends UIDesignFactory26 {
@@ -18,8 +20,8 @@ public class DetailedDesign26 extends UIDesignFactory26 {
         return new DetailedLabel26(properties).create();
     }
 
-    public static DetailedDesign26 getInstance() {
-        if(detailedDesign == null){
+    public static DetailedDesign26 getInstance() {                  //get the instance of this class
+        if(detailedDesign == null){                                 //return new instance if not created previously otherwise return previous instance
             detailedDesign = new DetailedDesign26();
         }
         return detailedDesign;
